@@ -16,21 +16,25 @@ credential: admin.credential.cert(serviceAccount)
 let db = admin.firestore();
 
 async function fetchAndAddDataToFireStore(){
-  fetch('https://jsonplaceholder.typicode.com/users')
+  try{
+    fetch('https://jsonplaceholder.typicode.com/users')
   .then(res => res.json())
   .then(async data=> {
-    await Promise.all(data.map(user => db.collection('users').add({user})))
+    await Promise.allSettled(data.map(user => db.collection('users').add({user})))
   })
+  }catch(err){
+    console.log(err)
+  }
 }
 fetchAndAddDataToFireStore()
 
-const cities = ["Fairfax", "Vienna", "Falls Church", "Arlington"];
+// const cities = ["Fairfax", "Vienna", "Falls Church", "Arlington"];
 
-const populations = [24019, 16489, 14128, 236842];
+// const populations = [24019, 16489, 14128, 236842];
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// })
 
 app.get('/users', async (req, res) => {
   const userRef = await db.collection('users').get();
@@ -45,9 +49,9 @@ app.get('/users/:id', async (req, res) => {
   return res.json(user)
 })
 
-app.get('/populations', (req, res) => {
-  return res.json(populations)
-})
+// app.get('/populations', (req, res) => {
+//   return res.json(populations)
+// })
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.

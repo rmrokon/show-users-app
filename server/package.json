@@ -5,12 +5,12 @@
   "main": "server.js",
   "scripts": {
     "test:backend": "jest --findRelatedTests app.test.js",
-    "test:frontend": "cd client && npm test",
-    "setup": "cd client && npm install && npm run-script build && cd ..",
+    "test:frontend": "cd ../client && npm test",
+    "setup": "cd ../client && npm install && npm run-script build && cd ..",
     "start": "concurrently \"node server.js\" \"cd ../client && npm run-script start\"",
     "start-express": "node server.js",
-    "start-react": "cd client && npm run-script start",
-    "heroku-postbuild": "cd client && npm install && npm run-script build"
+    "start-react": "cd ../client && npm run-script start",
+    "heroku-postbuild": "cd ../client && npm install && npm run-script build"
   },
   "repository": {
     "type": "git",

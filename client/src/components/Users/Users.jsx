@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   Link
 } from "react-router-dom";
+import './Users.css';
 
 class Users extends Component {
   // Initialize state
@@ -21,21 +22,21 @@ class Users extends Component {
 render() {
 const { users } = this?.state;
     return (
-      <div className="App">
-        {/* Render the cities*/}
-          <div>
+          <div className="users">
             <h1>Users</h1>
-            <ul className="cities">
+            <ul>
               {users?.map(({user, id}) =>
               <Link to={`/users/${id}`} key={id}>
-              <li>
-              {user?.name}
+              <li className='singleUser'>
+             <h3>{user?.name}</h3>
+             <p>{user?.email}</p>
+             <p>{user?.phone}</p>
+             <p>{user?.website}</p>
             </li>
               </Link>
               )}
             </ul>
           </div>
-      </div>
       );    
   }
 }

@@ -4,7 +4,7 @@ import {
   Routes
 } from "react-router-dom";
 import './App.css';
-import Users from './components/users';
+import Users from './components/Users/Users';
 import NavBar from './components/Navbar';
 import SingleUser from './components/SingleUser';
 

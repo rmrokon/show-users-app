@@ -1,0 +1,19 @@
+.users > h1 {
+    text-align: center;
+}
+
+.users > ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.singleUser {
+    list-style: none;
+    border: 1px solid lightblue;
+    padding: 12px;
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+}

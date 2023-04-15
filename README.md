@@ -15,17 +15,33 @@
 
 *Here please describe your (at least) 3 different React components as well as the overall purpose of your web application. We provide an example below of what we expect this documentation to look like.*
 
-**General App Description:** This web application provides information about cities loaded from a centralized database at www.citiesinfo.org. This app can help people find reference information about various city attributes such as population, capitals, and other demographic information.
+**General App Description:** This web app provides information about random users. Initially data is fetched from a third party api taken from jsonplaceholder.com and saved to a firestore database. In response of any HTTP request, the server fetch data from the firestore database. To achieve single page application feature React router dom has been used.
+The app can provide all the availble users' information and single user's information.
 
-* **Endpoint 1:** Retrieve a city from our Washington DC Database
-  * API Endpoint: GET /city/:cityID
-  * Example: GET /city/21
-  * Expected Output: "Fairfax"
+* **Endpoint 1:** Retrieve all users.
+  * API Endpoint: GET /users
+  * Example: GET /user
+  * Expected Output: an array of users.
 
-* **Component 1:** City List Component
+* **Endpoint 2:** Retrieve single user.
+  * API Endpoint: GET /user/:id
+  * Example: GET /user/21
+  * Expected Output: {
+    "name": "username",
+    "email": "user email"
+  }
+
+* **Component 1:** Navbar: Contains the navlinks.
+
+* **Component 2:** Users: List of all the users displayed here.
 	* API Endpoint(s):
-  		* GET /cities
-  * Expected display: An html list of the cities contained within the Firebase database.
+  		* GET /users
+  * Expected display: An html list of the users contained within the Firebase database.
+
+* **Component 3:** Single User Information: Information about a single user are displayed here. 
+	* API Endpoint(s):
+  		* GET /users/:id
+  * Expected display: An html page of a single user contained within the Firebase database.
 
 ## Project Overview
 
